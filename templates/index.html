@@ -1,61 +1,29 @@
 <html>
-
 <head>
+<title>Banking Transaction System</title>
+</head>
+<body>
 
-<title>🏦 Banking Transaction System v2.0</title>
+<h1>🏦 Banking Transaction System v2.0</h1>
 
-<style>
+<h2>Customer Accounts</h2>
 
-body{
-background:#f4f7fc;
-font-family:Segoe UI,sans-serif;
-padding:20px;
-margin:0;
-}
+<table border="1">
+<tr>
+<th>Account Number</th>
+<th>Customer Name</th>
+<th>Balance</th>
+</tr>
 
-.header{
-background:#5b8def;
-color:white;
-padding:20px;
-border-radius:12px;
-margin-bottom:20px;
-}
+{% for acc_no, acc in accounts.items() %}
+<tr>
+<td>{{ acc_no }}</td>
+<td>{{ acc.name }}</td>
+<td>{{ acc.balance }}</td>
+</tr>
+{% endfor %}
 
-.card{
-background:white;
-padding:20px;
-margin-bottom:20px;
-border-radius:12px;
-box-shadow:0px 2px 10px rgba(0,0,0,0.1);
-}
+</table>
 
-table{
-width:100%;
-border-collapse:collapse;
-}
-
-th{
-background:#5b8def;
-color:white;
-padding:12px;
-}
-
-td{
-padding:12px;
-border-bottom:1px solid #dddddd;
-}
-
-input,
-select{
-padding:10px;
-margin:5px;
-border:1px solid #cccccc;
-border-radius:8px;
-}
-
-button{
-background:#5b8def;
-color:white;
-padding:10px 18px;
-border:none;
-border-radius
+</body>
+</html>
