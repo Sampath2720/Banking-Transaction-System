@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Banking Transaction System</title>
+<title>🏦 Banking Transaction System v2.0</title>
 </head>
 
 <body>
@@ -24,29 +24,4 @@
 <th>Account Number</th>
 <th>Customer Name</th>
 <th>Balance</th>
-</tr>
-
-{% for acc_no, acc in accounts.items() %}
-<tr>
-<td>{{ acc_no }}</td>
-<td>{{ acc.name }}</td>
-<td>{{ acc.balance }}</td>
-</tr>
-{% endfor %}
-
-</table>
-
-<hr>
-
-<h2>💰 Deposit Money</h2>
-
-<form actionelect name="account_no">
-
-{% for acc_no, acc in accounts.items() %}
-<option value="{{ acc_no }}">
-{{ acc_no }} - {{ acc.name }}
-</option>
-{% endfor %}
-
-</select>
-
+</tr
