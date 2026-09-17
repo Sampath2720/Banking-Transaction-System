@@ -77,4 +77,16 @@ def withdraw():
         transactions.append({
             "time": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             "account": account_no,
+
+                    "customer": accounts[account_no]["name"],
+            "type": "Withdraw",
+            "amount": amount,
+            "balance": accounts[account_no]["balance"]
+        })
+
+    return redirect("/")
+
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=7030)
  
