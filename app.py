@@ -4,18 +4,9 @@ from datetime import datetime
 app = Flask(__name__)
 
 accounts = {
-    "100001": {
-        "name": "Sampath",
-        "balance": 5000
-    },
-    "100002": {
-        "name": "Rakesh",
-        "balance": 10000
-    },
-    "100003": {
-        "name": "Karthik",
-        "balance": 7000
-    }
+    "100001": {"name": "Sampath", "balance": 5000},
+    "100002": {"name": "Rakesh", "balance": 10000},
+    "100003": {"name": "Karthik", "balance": 7000}
 }
 
 transactions = []
@@ -77,8 +68,7 @@ def withdraw():
         transactions.append({
             "time": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
             "account": account_no,
-
-                    "customer": accounts[account_no]["name"],
+            "customer": accounts[account_no]["name"],
             "type": "Withdraw",
             "amount": amount,
             "balance": accounts[account_no]["balance"]
@@ -89,4 +79,3 @@ def withdraw():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=7030)
- 
