@@ -1,65 +1,40 @@
 <html>
+
 <head>
-<title>Banking Transaction System</title>
+
+<title>Banking Transaction System v2.0</title>
+
 <style>
+
 body{
-font-family:Arial;
-background:#f5f5f5;
-padding:20px;
+font-family: Arial, sans-serif;
+background:#f4f6f9;
+margin:20px;
 }
+
+.header{
+background:#003366;
+color:white;
+padding:20px;
+border-radius:10px;
+margin-bottom:20px;
+}
+
 .card{
 background:white;
 padding:20px;
-margin:10px;
+margin-bottom:20px;
 border-radius:10px;
-box-shadow:0 0 10px gray;
+box-shadow:0 0 10px #d3d3d3;
 }
-table{
-width:100%;
-border-collapse:collapse;
-}
-th{
-background:#1565c0;
-color:white;
+
+input,select{
 padding:10px;
+margin:5px;
+width:250px;
 }
-td{
-border:1px solid #ccc;
-padding:10px;
-}
+
 button{
+padding:10px 20px;
 background:#1565c0;
 color:white;
-padding:10px;
-border:none;
-border-radius:5px;
-}
-input{
-padding:10px;
-width:200px;
-}
-</style>
-</head>
-<body>
-<h1>🏦 Banking Transaction System</h1>
-<div class="card">
-<h2>Account Number : 100001</h2>
-<h2>Customer : Sampath</h2>
-<h2>Current Balance : ₹ {{ balance }}</h2>
-<hr>
-<h2>Account Number : 100002</h2>
-<h2>Customer : Rakesh</h2>
-<h2>Current Balance : ₹ {{ balance }}</h2>
-</div>
-<div class="card">
-<h3>Deposit Amount</h3>
-<form actionput type="number" name="amount" placeholder="Deposit Amount" required>
-<button type="submit">Deposit</button>
-</form>
-<br>
-<h3>Withdraw Amount</h3>
-<form action="/withdraw"umber" name="amount" placeholder="Withdraw Amount" required>
-<button type="submit">Withdraw</button>
-</form>
-</div>
-<div class="card">​‌
