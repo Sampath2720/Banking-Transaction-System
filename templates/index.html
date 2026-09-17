@@ -38,16 +38,10 @@
 
 <hr>
 
-<h2>💰 Deposit Money</h2>
+<h2>📜 Transaction History</h2>
 
-<formsit
+<table border="1">
 
-<select name="account_no">
-{% for acc_no, acc in accounts.items() %}
-<option value="{{ acc_no }}">
-{{ acc_no }} - {{ acc.name }}
-</option>
-{% endfor %}
-</select>
-
-<input type="number" name="amount
+<tr>
+<th>Time</th>
+<th
