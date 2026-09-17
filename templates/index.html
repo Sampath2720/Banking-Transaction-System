@@ -38,10 +38,15 @@
 
 <hr>
 
-<h2>📜 Transaction History</h2>
+<h2>💰 Deposit Money</h2>
 
-<table border="1">
+<form actionelect name="account_no">
 
-<tr>
-<th>Time</th>
-<th
+{% for acc_no, acc in accounts.items() %}
+<option value="{{ acc_no }}">
+{{ acc_no }} - {{ acc.name }}
+</option>
+{% endfor %}
+
+</select>
+
