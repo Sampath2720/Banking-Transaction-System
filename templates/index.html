@@ -1,14 +1,25 @@
 <html>
 <head>
-<title>Banking Transaction System</title>
+<title>🏦 Banking Transaction System v2.0</title>
 </head>
+
 <body>
 
 <h1>🏦 Banking Transaction System v2.0</h1>
 
+<h2>🔍 Search Customer</h2>
+
+<form method="GET">
+<input type="text" name="search" placeholder="Search Customer or Account">
+<button type="submit">Search</button>
+</form>
+
+<hr>
+
 <h2>Customer Accounts</h2>
 
 <table border="1">
+
 <tr>
 <th>Account Number</th>
 <th>Customer Name</th>
@@ -22,8 +33,3 @@
 <td>{{ acc.balance }}</td>
 </tr>
 {% endfor %}
-
-</table>
-
-</body>
-</html>
