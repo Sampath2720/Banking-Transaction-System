@@ -1,0 +1,50 @@
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f7fc;
+    margin:20px;
+}
+
+h1{
+    background:#4f86f7;
+    color:white;
+    padding:15px;
+    border-radius:10px;
+}
+
+h2{
+    color:#333;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    background:white;
+}
+
+th{
+    background:#4f86f7;
+    color:white;
+    padding:10px;
+}
+
+td{
+    padding:10px;
+    border:1px solid #ddd;
+}
+
+input{
+    padding:8px;
+    margin:5px;
+}
+
+button{
+    background:#4f86f7;
+    color:white;
+    border:none;
+    padding:8px 15px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#356de8;
+}
