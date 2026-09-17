@@ -3,16 +3,43 @@ from datetime import datetime
 
 app = Flask(__name__)
 
-balance = 10000
+accounts = {
+    "100001": {
+        "name": "Sampath",
+        "balance": 5000
+    },
+    "100002": {
+        "name": "Rakesh",
+        "balance": 10000
+    },
+    "100003": {
+        "name": "Karthik",
+        "balance": 7000
+    }
+}
 
 transactions = []
 
 
 @app.route("/")
 def home():
+
+    search = request.args.get("search", "").lower()
+
+    filtered_accounts = {}
+
+    for acc_no, details in accounts.items():
+
+        if (
+            search == ""
+            or search in acc_no.lower()
+            or search in details["name"].lower()
+        ):
+            filtered_accounts[acc_no] = details
+
     return render_template(
         "index.html",
-        balance=balance,
+        accounts=filtered_accounts,
         transactions=transactions
     )
 
@@ -20,16 +47,18 @@ def home():
 @app.route("/deposit", methods=["POST"])
 def deposit():
 
-    global balance
-
+    account_no = request.form["account_no"]
     amount = int(request.form["amount"])
 
-    balance += amount
+    accounts[account_no]["balance"] += amount
 
     transactions.append({
+        "time": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "account": account_no,
+        "customer": accounts[account_no]["name"],
         "type": "Deposit",
         "amount": amount,
-        "time": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        "balance": accounts[account_no]["balance"]
     })
 
     return redirect("/")
@@ -38,22 +67,14 @@ def deposit():
 @app.route("/withdraw", methods=["POST"])
 def withdraw():
 
-    global balance
-
+    account_no = request.form["account_no"]
     amount = int(request.form["amount"])
 
-    if balance >= amount:
+    if amount <= accounts[account_no]["balance"]:
 
-        balance -= amount
+        accounts[account_no]["balance"] -= amount
 
         transactions.append({
-            "type": "Withdraw",
-            "amount": amount,
-            "time": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        })
-
-    return redirect("/")
-
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=7030)
+            "time": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "account": account_no,
+ 
