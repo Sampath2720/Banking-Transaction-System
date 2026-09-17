@@ -1,7 +1,9 @@
 <html>
 <head>
 <title>🏦 Banking Transaction System v2.0</title>
+
 <link rel="stylesheetfilename='style.css') }}
+
 </head>
 
 <body>
@@ -25,45 +27,4 @@
 <th>Account Number</th>
 <th>Customer Name</th>
 <th>Balance</th>
-</tr>
-
-{% for acc_no, acc in accounts.items() %}
-<tr>
-<td>{{ acc_no }}</td>
-<td>{{ acc.name }}</td>
-<td>{{ acc.balance }}</td>
-</tr>
-{% endfor %}
-
-</table>
-
-<hr>
-
-<h2>📜 Transaction History</h2>
-
-<table>
-
-<tr>
-<th>Time</th>
-<th>Account</th>
-<th>Customer</th>
-<th>Type</th>
-<th>Amount</th>
-<th>Balance</th>
-</tr>
-
-{% for t in transactions %}
-<tr>
-<td>{{ t.time }}</td>
-<td>{{ t.account }}</td>
-<td>{{ t.customer }}</td>
-<td>{{ t.type }}</td>
-<td>{{ t.amount }}</td>
-<td>{{ t.balance }}</td>
-</tr>
-{% endfor %}
-
-</table>
-
-</body>
-</html>
+</tr
