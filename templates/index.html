@@ -1,52 +1,27 @@
 <html>
 <head>
-<title>Banking Transaction System</title>
-<style>
-body{
-font-family:Arial;
-background:#f4f6f9;
-padding:20px;
-}
-
-.card{
-background:white;
-padding:20px;
-margin-bottom:20px;
-border-radius:10px;
-box-shadow:0 0 10px lightgray;
-}
-
-table{
-width:100%;
-border-collapse:collapse;
-}
-
-th,td{
-border:1px solid #ddd;
-padding:10px;
-text-align:center;
-}
-
-th{
-background:#1565c0;
-color:white;
-}
-</style>
+<title>🏦 Banking Transaction System v2.0</title>
 </head>
-
 <body>
 
-<div class="card">
 <h1>🏦 Banking Transaction System v2.0</h1>
-</div>
 
-<div class="card">
+<h2>🔍 Search Customer</h2>
+
+<form method="GET">
+<input type="text" name="search" placeholder="Search Customer or Account">
+<button type="submit">Search</button>
+</form>
+
+<hr>
+
 <h2>Customer Accounts</h2>
 
-<table>
+<table border="1">
+
 <tr>
 <th>Account Number</th>
-<th>Customer</th>
+<th>Customer Name</th>
 <th>Balance</th>
 </tr>
 
@@ -59,7 +34,78 @@ color:white;
 {% endfor %}
 
 </table>
-</div>
+
+<hr>
+
+<h2>💰 Deposit Money</h2>
+
+/deposit
+
+<select name="account_no">
+{% for acc_no, acc in accounts.items() %}
+<option value="{{ acc_no }}">
+{{ acc_no }} - {{ acc.name }}
+</option>
+{% endfor %}
+</select>
+
+<input type="number" name="amount" required>
+
+<button type="submit">
+Deposit
+</button>
+
+</form>
+
+<hr>
+
+<h2>💸 Withdraw Money</h2>
+
+/withdraw
+
+<select name="account_no">
+{% for acc_no, acc in accounts.items() %}
+<option value="{{ acc_no }}">
+{{ acc_no }} - {{ acc.name }}
+</option>
+{% endfor %}
+</select>
+
+<input type="number" name="amount" required>
+
+<button type="submit">
+Withdraw
+</button>
+
+</form>
+
+<hr>
+
+<h2>📜 Transaction History</h2>
+
+<table border="1">
+
+<tr>
+<th>Time</th>
+<th>Account</th>
+<th>Customer</th>
+<th>Type</th>
+<th>Amount</th>
+<th>Balance</th>
+</tr>
+
+{% for t in transactions %}
+<tr>
+<td>{{ t.time }}</td>
+<td>{{ t.account }}</td>
+<td>{{ t.customer }}</td>
+<td>{{ t.type }}</td>
+<td>{{ t.amount }}</td>
+<td>{{ t.balance }}</td>
+</tr>
+{% endfor %}
+
+</table>
 
 </body>
 </html>
